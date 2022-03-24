@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-lg-6 px-lg-4">
+    <div class="card">
+      <div class="card-header px-lg-5">
+        <div class="card-heading text-primary">Register</div>
+      </div>
+      <div class="card-body p-lg-5">
+        <h3 class="mb-4">Register</h3>
+
+        <form #fm="ngForm" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+          <div class="form-floating mb-3">
+            <input class="form-control" formControlName="user_name" id="username" type="email"
+              placeholder="name@example.com">
+            <label for="username">Username</label>
+            <!-- Start Err -->
+            <div class="error" *ngIf="userForm.get('user_name').dirty && 
+              userForm.get('user_name').errors?.required">
+              UserName không được bỏ trống*
+            </div>
+            <div class="error" *ngIf="userForm.get('user_name').dirty && 
+          userForm.get('user_name').errors?.['minlength']">
+              UserName tối thiểu 6 kí tự*
+            </div>
+            <!-- end err -->
+          </div>
+
+          <div class="form-floating mb-3">
+            <input class="form-control" formControlName="email" id="floatingInput" type="email"
+              placeholder="name@example.com" required>
+            <label for="floatingInput">Mail address</label>
+            <!-- Start Err -->
+            <div class="error" *ngIf="userForm.get('email').dirty && 
+              userForm.get('email').errors?.required">
+              Email không được bỏ trống*
+            </div>
+            <div class="error" *ngIf="userForm.get('email').dirty && 
+                       userForm.get('email').errors?.['email']">
+              Email không hợp lệ*
+            </div>
+            <!-- end err -->
+          </div>
+
+          <div class="form-floating mb-3">
+            <input class="form-control" formControlName="password" id="floatingPassword" type="password"
+              placeholder="Password" required>
+            <label for="floatingPassword">Password</label>
+            <!-- Start Err -->
+            <div class="error" *ngIf="userForm.get('password').dirty && 
+             userForm.get('password').errors?.required">
+              password không được bỏ trống*
+            </div>
+            <div class="error" *ngIf="userForm.get('password').dirty && 
+         userForm.get('password').errors?.['minlength']">
+              password tối thiểu 6 kí tự*
+            </div>
+            <!-- end err -->
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" (change)="isAgree()" type="checkbox" name="agree" id="agree">
+            <label class="form-check-label" for="agree">Bạn đồng ý với các điều kiện <a href="#">Terms &
+                Conditions</a>.</label>
+          </div>
+
+          <div class="form-group">
+            <button [ngClass]="{'disabled':isDisable}" class="btn btn-primary" id="regidter">Register</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="card-footer px-lg-5 py-lg-4">
+        <div class="text-sm text-muted">Bạn không có tài khoản? <a>Login</a>.</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-xl-5 ms-xl-auto px-lg-4 text-center text-primary"><img class="img-fluid mb-4" width="100px"
+      src=".../../../../../assets/images/login.jpg" width="500px" height="300px" alt=""
+      style="transform: rotate(10deg)">
+    <h1 class="mb-4"> <br class="d-none d-lg-inline">SHOPPING.</h1>
+    <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt
+      ut labore.</p>
+  </div>

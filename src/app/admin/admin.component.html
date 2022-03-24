@@ -1,0 +1,29 @@
+<!--Container -->
+<div class="mx-auto bg-grey-400">
+    <!--Screen-->
+    <div class="container">
+        <!--Header Section Starts Here-->
+         <div class="row">
+            <app-menu></app-menu>
+         </div>
+        <!--/Header-->
+
+        <div class="row">
+            <div class="col-lg-2">
+                <!--/Sidebar-->
+            <app-sidebar></app-sidebar>
+
+            </div>
+            <div class="col-lg-10">
+                
+            <!--Main-->
+            <router-outlet ></router-outlet>
+            <!--/Main-->
+            </div>
+            
+        </div>
+        <!--Footer-->
+            <app-footer></app-footer>
+        <!--/footer-->
+    </div>
+</div>

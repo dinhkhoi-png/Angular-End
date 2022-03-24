@@ -1,0 +1,56 @@
+<div class="page-holder align-items-center py-4 bg-gray-100 vh-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 px-lg-4">
+        <div class="card">
+          <div class="card-header px-lg-5">
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="card-heading text-primary">
+              <i class="fa-solid fa-circle-arrow-left"></i>
+             Back to Home
+            </a>
+          </div>
+          <div class="card-body p-lg-5">
+            <h3 class="mb-4">Hi, welcome back!Please Login  👋👋</h3>
+            <p class="text-muted text-sm mb-5">WELCOME TO SHOPPING ,LOGIN HERE.</p>
+            <form #fm="ngForm" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)" id="loginForm" >
+              <div class="form-floating mb-3">
+                <input class="form-control" formControlName="email"  id="floatingInput" type="email" placeholder="name@example.com" required>
+                <label for="floatingInput">Email address</label>
+                <!-- Start Err -->
+                <div class="error" *ngIf="userForm.get('email').dirty && 
+            userForm.get('email').errors?.required">
+                  Email không được bỏ trống*
+                </div>
+                <div class="error" *ngIf="userForm.get('email').dirty && 
+                     userForm.get('email').errors?.['email']">
+                  Email không hợp lệ*
+                </div>
+                <!-- end err -->
+              </div>
+              <div class="form-floating mb-3">
+                <input class="form-control" formControlName="password" id="floatingPassword" type="password" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+                 <!-- Start Err -->
+            <div class="error" *ngIf="userForm.get('password').dirty && 
+            userForm.get('password').errors?.required">
+             password không được bỏ trống*
+           </div>
+           <div class="error" *ngIf="userForm.get('password').dirty && 
+                userForm.get('password').errors?.['minlength']">
+             password tối thiểu 6 kí tự*
+           </div>
+           <!-- end err -->
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                <label class="form-check-label" for="remember">Remember me</label>
+              </div>
+              <button class="btn btn-primary" >Submit</button>
+            </form>
+          </div>
+          <div class="card-footer px-lg-5 py-lg-4">
+            <div class="text-sm text-muted">Don't have an account? <a>Register</a>.</div>
+          </div>
+        </div>
+      </div>
+      <!-- register -->

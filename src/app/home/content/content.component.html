@@ -1,0 +1,40 @@
+<!-- ========================= SECTION  ========================= -->
+<section class="section-name padding-y-sm">
+    <div class="container">
+
+        <header class="section-heading">
+            <a class="btn btn-outline-primary float-end">See all</a>
+            <h3 class="section-title">Popular products</h3>
+
+
+            <div class="input-group-append">
+                <input type="text" #mySearch [(ngModel)]="searchString" (input)="search(mySearch.value)"
+                    style="width: 600px;" class="form-control" placeholder="Search Here">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+
+
+        </header><!-- sect-heading -->
+
+
+        <div class="row">
+
+            <div class="col-md-3" *ngFor="let item of productItems;">
+                <div class="card card-product-grid">
+                    <a class="img-wrap">
+                        <img [src]="item.url" alt="{{item.product_name}}"> </a>
+                    <figcaption class="info-wrap">
+                        <a class="title">
+                            {{ item.product_name }}</a>
+                        <div class="price mt-1">${{ item.price }}</div>
+                    </figcaption>
+                    <button type="button" (click)="add(item)" class="btn btn-primary">Buy now!</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
